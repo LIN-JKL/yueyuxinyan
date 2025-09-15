@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>页面未找到 - 粤言新语</title>
+    <!-- 古风字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <link href="styles/main.css" rel="stylesheet">
+    
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8c5e58', // 古棕色
+                        secondary: '#a86b51', // 棕褐色
+                        accent: '#7a5c61', // 紫褐色
+                        dark: '#3c3530', // 深棕色
+                        light: '#f9f3ee', // 米白色
+                        paper: '#f5ede3' // 宣纸色
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Noto Serif SC', 'serif'],
+                        gushi: ['"Ma Shan Zheng"', 'cursive'] // 古风字体
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-paper min-h-screen">
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm transition-all duration-300" id="navbar">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2">
+                        <i class="fa fa-language text-primary text-2xl"></i>
+                        <span class="text-xl font-bold text-primary">粤言新语</span>
+                    </a>
+                </div>
+                
+                <!-- 桌面端导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-primary font-medium transition-colors duration-200">首页</a>
+                    <a href="learning-features.html" class="text-gray-600 hover:text-primary font-medium transition-colors duration-200">学习功能</a>
+                    <a href="practice.html" class="text-gray-600 hover:text-primary font-medium transition-colors duration-200">练习题库</a>
+                    <a href="videos.html" class="text-gray-600 hover:text-primary font-medium transition-colors duration-200">影视学习</a>
+                    <a href="learning-progress.html" class="text-gray-600 hover:text-primary font-medium transition-colors duration-200">学习情况</a>
+                    <a href="about.html" class="text-gray-600 hover:text-primary font-medium transition-colors duration-200">关于我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button type="button" id="mobile-menu-button" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">首页</a>
+                    <a href="learning-features.html" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">学习功能</a>
+                    <a href="practice.html" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">练习题库</a>
+                    <a href="videos.html" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">影视学习</a>
+                    <a href="learning-progress.html" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">学习情况</a>
+                    <a href="about.html" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">关于我们</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+    
+    <div class="container mx-auto px-4 py-12">
+        <div class="text-center max-w-2xl mx-auto">
+            <h1 class="font-gushi text-5xl md:text-7xl text-primary mb-6">哎呀！</h1>
+            <div class="font-serif text-2xl text-dark mb-8">您寻找的页面似乎不存在了</div>
+            <p class="text-gray-600 mb-10">可能是页面已被移除，或者链接有误。请检查URL是否正确，或者返回首页继续浏览。</p>
+            <a href="index.html" class="inline-block bg-primary text-white px-8 py-3 rounded-md hover:bg-opacity-90 transition-colors duration-300">
+                返回首页
+            </a>
+        </div>
+    </div>
+</body>
+</html>

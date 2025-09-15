@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>一键打开所有页面 - 粤言新语</title>
+</head>
+<body>
+    <div style="text-align: center; padding: 50px;">
+        <h1>粤言新语 - 一键打开所有页面</h1>
+        <p>点击下方按钮打开所有学习页面（请确保已允许浏览器弹窗）</p>
+        <button onclick="openAllPages()" style="padding: 20px; margin-top: 20px; font-size: 16px; cursor: pointer;">
+          点击打开所有页面（需允许弹窗）
+        </button>
+    </div>
+    
+    <script>
+        function openAllPages() {
+            // 定义所有页面的相对URL（本地开发环境）
+            const pages = [
+                'index.html',       // 首页
+                'about.html',       // 关于
+                'learning-features.html', // 学习功能
+                'practice.html',    // 练习
+                'videos.html',      // 影视
+                'learning-progress.html' // 进度
+            ];
+            
+            // 在用户点击事件中即时打开所有其他页面（不易被拦截）
+            let allOpened = true;
+            pages.slice(1).forEach(url => {
+                const newWindow = window.open(url, '_blank');
+                if (!newWindow) {
+                    allOpened = false;
+                }
+            });
+            
+            // 如果有页面打开失败，显示提示（在跳转前）
+            if (!allOpened) {
+                alert('部分页面可能打开失败，请检查浏览器是否允许弹窗！');
+            }
+            
+            // 最后跳转到首页
+            window.location.href = 'index.html';
+        }
+    </script>
+</body>
+</html>

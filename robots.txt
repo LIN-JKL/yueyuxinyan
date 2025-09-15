@@ -1,0 +1,8 @@
+User-agent: *
+Disallow: 
+
+# 允许所有搜索引擎索引网站所有内容
+# 如果需要限制特定目录或文件，可以在此添加Disallow规则
+
+# 示例：禁止索引测试页面
+Disallow: /test.html

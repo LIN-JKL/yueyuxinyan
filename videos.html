@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>影视学习 - 粤言新语</title>
+    <!-- 古风字体 -->
+    <link href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    
+    <!-- Tailwind 配置 -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#8c5e58', // 古棕色
+                        secondary: '#a86b51', // 棕褐色
+                        accent: '#7a5c61', // 紫褐色
+                        dark: '#3c3530', // 深棕色
+                        light: '#f9f3ee', // 米白色
+                        paper: '#f5ede3' // 宣纸色
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                        serif: ['Noto Serif SC', 'serif'],
+                        gushi: ['"Ma Shan Zheng"', 'cursive'] // 古风字体
+                    },
+                },
+            }
+        }
+    </script>
+    
+    <!-- 自定义工具类 -->
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .text-shadow-lg {
+                text-shadow: 0 4px 8px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.08);
+            }
+            .transition-all-300 {
+                transition: all 0.3s ease;
+            }
+        }
+    </style>
+    
+    <!-- 全局样式 -->
+    <link href="styles/main.css" rel="stylesheet">
+</head>
+<body class="font-sans text-gray-800">
+    <!-- 导航栏 -->
+    <header class="sticky top-0 z-50 bg-white/90 backdrop-blur-sm shadow-sm transition-all duration-300" id="navbar">
+        <nav class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fa fa-language text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-primary">粤言新语</span>
+                </a>
+                </div>
+                
+                <!-- 桌面端导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="text-gray-600 hover:text-primary font-medium transition-colors duration-200">首页</a>
+                    <a href="learning-features.html" class="text-gray-600 hover:text-primary font-medium transition-colors duration-200">学习功能</a>
+                    <a href="practice.html" class="text-gray-600 hover:text-primary font-medium transition-colors duration-200">练习题库</a>
+                    <a href="videos.html" class="text-primary font-medium transition-colors duration-200">影视学习</a>
+                    <a href="learning-progress.html" class="text-gray-600 hover:text-primary font-medium transition-colors duration-200">学习情况</a>
+                    <a href="about.html" class="text-gray-600 hover:text-primary font-medium transition-colors duration-200">关于我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <div class="md:hidden">
+                    <button type="button" id="mobile-menu-button" class="text-gray-600 hover:text-primary focus:outline-none">
+                        <i class="fa fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div class="md:hidden hidden" id="mobile-menu">
+                <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                    <a href="index.html" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">首页</a>
+                    <a href="learning-features.html" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">学习功能</a>
+                    <a href="practice.html" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">练习题库</a>
+                    <a href="videos.html" class="block px-3 py-2 text-base font-medium text-primary bg-gray-50 rounded-md">影视学习</a>
+                    <a href="learning-progress.html" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">学习情况</a>
+                    <a href="about.html" class="block px-3 py-2 text-base font-medium text-gray-600 hover:text-primary hover:bg-gray-50 rounded-md">关于我们</a>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- 影视学习标题 -->
+        <section class="py-12 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center">
+                    <h1 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-primary mb-4 inline-block">影视学习</h1>
+                    <p class="text-gray-600 max-w-2xl mx-auto">通过经典影视片段，学习地道的粤语表达和语法知识</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 影视学习内容 -->
+        <section class="py-12 bg-white">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="max-w-6xl mx-auto">
+                    <!-- 影视片段卡片列表 -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <!-- 影视片段卡片 1 -->
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300">
+                            <div class="relative aspect-video bg-gray-200">
+                                <img src="https://picsum.photos/id/237/600/340" alt="影视片段封面" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <button class="w-16 h-16 rounded-full bg-primary/80 text-white flex items-center justify-center hover:bg-primary transition-colors duration-200">
+                                        <i class="fa fa-play text-xl"></i>
+                                    </button>
+                                </div>
+                                <div class="absolute top-3 left-3 bg-primary/90 text-white text-xs px-2 py-1 rounded-md">
+                                    5:32
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-0.5 rounded">日常对话</span>
+                                    <span class="ml-2 text-gray-500 text-sm">《家有喜事》</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-dark mb-2">初次见面礼貌用语</h3>
+                                <p class="text-gray-600 mb-4 line-clamp-2">学习粤语中初次见面的礼貌用语和自我介绍的常用表达，掌握正确的语气和用词。</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-500 text-sm">
+                                        <i class="fa fa-eye mr-1"></i> 1.2k
+                                    </span>
+                                    <a href="#" class="text-primary font-medium text-sm hover:underline">查看详情</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 影视片段卡片 2 -->
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300">
+                            <div class="relative aspect-video bg-gray-200">
+                                <img src="https://picsum.photos/id/238/600/340" alt="影视片段封面" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <button class="w-16 h-16 rounded-full bg-primary/80 text-white flex items-center justify-center hover:bg-primary transition-colors duration-200">
+                                        <i class="fa fa-play text-xl"></i>
+                                    </button>
+                                </div>
+                                <div class="absolute top-3 left-3 bg-primary/90 text-white text-xs px-2 py-1 rounded-md">
+                                    6:15
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-secondary/10 text-secondary text-xs font-medium px-2.5 py-0.5 rounded">饮食文化</span>
+                                    <span class="ml-2 text-gray-500 text-sm">《食神》</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-dark mb-2">美食相关词汇</h3>
+                                <p class="text-gray-600 mb-4 line-clamp-2">学习粤语中与美食相关的词汇和表达，了解广东饮食文化的独特之处。</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-500 text-sm">
+                                        <i class="fa fa-eye mr-1"></i> 856
+                                    </span>
+                                    <a href="#" class="text-primary font-medium text-sm hover:underline">查看详情</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 影视片段卡片 3 -->
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300">
+                            <div class="relative aspect-video bg-gray-200">
+                                <img src="https://picsum.photos/id/239/600/340" alt="影视片段封面" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <button class="w-16 h-16 rounded-full bg-primary/80 text-white flex items-center justify-center hover:bg-primary transition-colors duration-200">
+                                        <i class="fa fa-play text-xl"></i>
+                                    </button>
+                                </div>
+                                <div class="absolute top-3 left-3 bg-primary/90 text-white text-xs px-2 py-1 rounded-md">
+                                    4:47
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-accent/10 text-accent text-xs font-medium px-2.5 py-0.5 rounded">职场用语</span>
+                                    <span class="ml-2 text-gray-500 text-sm">《使徒行者》</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-dark mb-2">职场沟通技巧</h3>
+                                <p class="text-gray-600 mb-4 line-clamp-2">学习粤语中职场沟通的常用表达和礼貌用语，提升职场交流能力。</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-500 text-sm">
+                                        <i class="fa fa-eye mr-1"></i> 732
+                                    </span>
+                                    <a href="#" class="text-primary font-medium text-sm hover:underline">查看详情</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 影视片段卡片 4 -->
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300">
+                            <div class="relative aspect-video bg-gray-200">
+                                <img src="https://picsum.photos/id/240/600/340" alt="影视片段封面" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <button class="w-16 h-16 rounded-full bg-primary/80 text-white flex items-center justify-center hover:bg-primary transition-colors duration-200">
+                                        <i class="fa fa-play text-xl"></i>
+                                    </button>
+                                </div>
+                                <div class="absolute top-3 left-3 bg-primary/90 text-white text-xs px-2 py-1 rounded-md">
+                                    7:03
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-primary/10 text-primary text-xs font-medium px-2.5 py-0.5 rounded">比较句式</span>
+                                    <span class="ml-2 text-gray-500 text-sm">《春娇与志明》</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-dark mb-2">比较级和最高级</h3>
+                                <p class="text-gray-600 mb-4 line-clamp-2">学习粤语中比较级和最高级的表达方式，掌握不同程度的比较用法。</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-500 text-sm">
+                                        <i class="fa fa-eye mr-1"></i> 924
+                                    </span>
+                                    <a href="#" class="text-primary font-medium text-sm hover:underline">查看详情</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 影视片段卡片 5 -->
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300">
+                            <div class="relative aspect-video bg-gray-200">
+                                <img src="https://picsum.photos/id/241/600/340" alt="影视片段封面" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <button class="w-16 h-16 rounded-full bg-primary/80 text-white flex items-center justify-center hover:bg-primary transition-colors duration-200">
+                                        <i class="fa fa-play text-xl"></i>
+                                    </button>
+                                </div>
+                                <div class="absolute top-3 left-3 bg-primary/90 text-white text-xs px-2 py-1 rounded-md">
+                                    5:28
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-secondary/10 text-secondary text-xs font-medium px-2.5 py-0.5 rounded">职场用语</span>
+                                    <span class="ml-2 text-gray-500 text-sm">《使徒行者》</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-dark mb-2">商务谈判技巧</h3>
+                                <p class="text-gray-600 mb-4 line-clamp-2">学习粤语中商务谈判的专业用语和技巧，提升商务沟通能力。</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-500 text-sm">
+                                        <i class="fa fa-eye mr-1"></i> 685
+                                    </span>
+                                    <a href="#" class="text-primary font-medium text-sm hover:underline">查看详情</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 影视片段卡片 6 -->
+                        <div class="bg-white rounded-xl shadow-md overflow-hidden border border-gray-100 hover:shadow-lg transition-all duration-300">
+                            <div class="relative aspect-video bg-gray-200">
+                                <img src="https://picsum.photos/id/242/600/340" alt="影视片段封面" class="w-full h-full object-cover">
+                                <div class="absolute inset-0 flex items-center justify-center">
+                                    <button class="w-16 h-16 rounded-full bg-primary/80 text-white flex items-center justify-center hover:bg-primary transition-colors duration-200">
+                                        <i class="fa fa-play text-xl"></i>
+                                    </button>
+                                </div>
+                                <div class="absolute top-3 left-3 bg-primary/90 text-white text-xs px-2 py-1 rounded-md">
+                                    6:45
+                                </div>
+                            </div>
+                            <div class="p-6">
+                                <div class="flex items-center mb-3">
+                                    <span class="bg-accent/10 text-accent text-xs font-medium px-2.5 py-0.5 rounded">饮食文化</span>
+                                    <span class="ml-2 text-gray-500 text-sm">《食神》</span>
+                                </div>
+                                <h3 class="text-lg font-bold text-dark mb-2">饮食文化词汇</h3>
+                                <p class="text-gray-600 mb-4 line-clamp-2">学习粤语中与饮食文化相关的独特词汇和表达，了解广东饮食文化的丰富内涵。</p>
+                                <div class="flex items-center justify-between">
+                                    <span class="text-gray-500 text-sm">
+                                        <i class="fa fa-eye mr-1"></i> 763
+                                    </span>
+                                    <a href="#" class="text-primary font-medium text-sm hover:underline">查看详情</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 加载更多按钮 -->
+                    <div class="text-center mt-12">
+                        <button class="px-8 py-3 bg-white border border-primary text-primary font-medium rounded-md hover:bg-primary/5 transition-colors duration-200 flex items-center justify-center mx-auto">
+                            <i class="fa fa-refresh mr-2"></i>
+                            <span>加载更多视频</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 学习方法 -->
+        <section class="py-16 bg-gray-50">
+            <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-12">
+                    <h2 class="text-[clamp(1.5rem,3vw,2.5rem)] font-bold text-dark mb-4">影视学习方法</h2>
+                    <p class="text-gray-600 max-w-2xl mx-auto">掌握这些方法，让你的影视学习更有效</p>
+                </div>
+                
+                <div class="max-w-4xl mx-auto">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                        <!-- 方法卡片 1 -->
+                        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all duration-300">
+                            <div class="w-12 h-12 rounded-full bg-primary/10 flex items-center justify-center mb-4">
+                                <i class="fa fa-play-circle text-primary text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-dark mb-3">先听后看</h3>
+                            <p class="text-gray-600">先听一遍影视片段，尝试理解内容大意，然后再结合字幕进行学习，这样可以提高你的听力水平。</p>
+                        </div>
+                        
+                        <!-- 方法卡片 2 -->
+                        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all duration-300">
+                            <div class="w-12 h-12 rounded-full bg-secondary/10 flex items-center justify-center mb-4">
+                                <i class="fa fa-repeat text-secondary text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-dark mb-3">反复练习</h3>
+                            <p class="text-gray-600">对于难度较大的片段，可以多次重复观看，直到完全理解其中的词汇和语法结构为止。</p>
+                        </div>
+                        
+                        <!-- 方法卡片 3 -->
+                        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all duration-300">
+                            <div class="w-12 h-12 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                                <i class="fa fa-book text-accent text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-dark mb-3">记录笔记</h3>
+                            <p class="text-gray-600">在学习过程中，记录下遇到的生词、短语和语法点，定期复习巩固，加深记忆。</p>
+                        </div>
+                        
+                        <!-- 方法卡片 4 -->
+                        <div class="bg-white rounded-xl shadow-md p-6 hover:shadow-lg transition-all duration-300">
+                            <div class="w-12 h-12 rounded-full bg-dark/10 flex items-center justify-center mb-4">
+                                <i class="fa fa-microphone text-dark text-xl"></i>
+                            </div>
+                            <h3 class="text-lg font-bold text-dark mb-3">模仿发音</h3>
+                            <p class="text-gray-600">模仿影视片段中的发音和语调，练习口语表达，这样可以提高你的口语水平和语言表现力。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white/80 py-12">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <div class="flex items-center space-x-2 mb-4">
+                        <i class="fa fa-language text-primary text-2xl"></i>
+                        <span class="text-xl font-bold text-white">粤言新语</span>
+                    </div>
+                    <p class="text-white/60 mb-4">
+                        传承粤语文化，创新学习体验，让粤语学习更有趣味。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-white/60 hover:text-primary transition-colors">
+                            <i class="fa fa-weixin text-lg"></i>
+                        </a>
+                        <a href="#" class="text-white/60 hover:text-primary transition-colors">
+                            <i class="fa fa-youtube-play text-lg"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold mb-4">学习资源</h3>
+                    <ul class="space-y-2">
+                        <li><a href="practice.html" class="text-white/60 hover:text-primary transition-colors">练习题库</a></li>
+                        <li><a href="videos.html" class="text-white/60 hover:text-primary transition-colors">影视学习</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-primary transition-colors">词汇表</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-primary transition-colors">语法指南</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-primary transition-colors">学习技巧</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold mb-4">关于我们</h3>
+                    <ul class="space-y-2">
+                        <li><a href="about.html" class="text-white/60 hover:text-primary transition-colors">团队介绍</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-primary transition-colors">联系我们</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-primary transition-colors">加入我们</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-primary transition-colors">使用条款</a></li>
+                        <li><a href="#" class="text-white/60 hover:text-primary transition-colors">隐私政策</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-white font-bold mb-4">联系我们</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fa fa-envelope-o mt-1 mr-3 text-primary"></i>
+                            <a href="mailto:15815505548@163.com" class="text-white/60 hover:text-primary transition-colors">联系15815505548@163.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-white/10 mt-8 pt-8 text-center text-white/60 text-sm">
+                <p>&copy; 粤言新语 版权所有</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 页面交互脚本 -->
+    <script src="scripts/main.js"></script>
+</body>
+</html>
